@@ -9,7 +9,7 @@ namespace ECommerce.DAL.Models
         [Key]
         public Guid Id { get; set; }
 
-        [MaxLength(255)]
+        [MaxLength(100)]
         [Column("product_name")]
         public string Name { get; set; }
         
