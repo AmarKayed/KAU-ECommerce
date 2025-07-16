@@ -1,4 +1,5 @@
-﻿using ECommerce.DAL.Models;
+﻿using ECommerce.DAL.Configurations;
+using ECommerce.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.DAL
@@ -11,5 +12,12 @@ namespace ECommerce.DAL
         // Define DbSets for your entities here
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+        }
     }
 }
