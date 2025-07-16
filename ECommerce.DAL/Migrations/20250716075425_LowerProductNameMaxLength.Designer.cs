@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECommerce.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250716073715_LowerProductNameMaxLength")]
+    [Migration("20250716075425_LowerProductNameMaxLength")]
     partial class LowerProductNameMaxLength
     {
         /// <inheritdoc />

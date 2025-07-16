@@ -34,7 +34,7 @@ namespace ECommerce.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("ECommerce.DAL.Models.Product", b =>
@@ -59,7 +59,7 @@ namespace ECommerce.DAL.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("ecommerce_products");
+                    b.ToTable("ecommerce_products", (string)null);
                 });
 
             modelBuilder.Entity("ECommerce.DAL.Models.Product", b =>
