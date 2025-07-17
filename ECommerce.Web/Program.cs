@@ -1,3 +1,9 @@
+using ECommerce.DAL;
+using ECommerce.DAL.Interfaces;
+using ECommerce.DAL.Models;
+using ECommerce.DAL.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 namespace ECommerce.Web
 {
     public class Program
@@ -8,6 +14,18 @@ namespace ECommerce.Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("ECommerceDb")));
+
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+            // or more typically, using IServiceCollection
+            builder.Services.AddAutoMapper(cfg =>
+            {
+                cfg.CreateMap<Product, Product>();
+            });
+
 
             var app = builder.Build();
 
